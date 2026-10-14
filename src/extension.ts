@@ -37,13 +37,9 @@ export function activate(context: vscode.ExtensionContext) {
 
         const result = analyzeCode(text);
 
-        const message = [
-            `Вложенность: ${result.maxDepth}`,
-            `Сложность: ${result.cyclomaticComplexity}`,
-            `Оценка: ${result.grade}`
-        ].join('\n');
+        const message = `Вложенность: ${result.maxDepth} | Сложность: ${result.cyclomaticComplexity} | Оценка: ${result.grade}`;
 
-        vscode.window.showInformationMessage(message, { modal: true });
+        vscode.window.showInformationMessage(message);
     });
 
     context.subscriptions.push(disposable);
